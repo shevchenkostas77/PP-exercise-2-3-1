@@ -1,0 +1,15 @@
+# Настройки базы данных
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_db
+    username: bestuser
+    password: bestuser
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# Настройки hibernate
+jpa:
+  hibernate:
+    show_sql: true
+    format_sql: true
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    hbm2ddl.auto: update
