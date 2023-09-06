@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     @Override
     public void createUser(User user) {
         entityManager.persist(user);
@@ -32,12 +32,14 @@ public class UserDaoImpl implements UserDao {
                 .getResultList();
     }
 
+    @Transactional
     @Override
     public void updateUser(User user) {
         entityManager.merge(user);
         entityManager.flush();
     }
 
+    @Transactional
     @Override
     public void deleteUser(long id) {
         User user = readUser(id);
